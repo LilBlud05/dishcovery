@@ -42,13 +42,13 @@ export function NotFoundClient({ staffPicks }: { staffPicks: MealSummary[] }) {
       <div className="flex items-center justify-between gap-4">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm font-medium text-stone-600 transition-colors hover:text-orange-700"
+          className="inline-flex items-center gap-2 text-sm font-medium text-stone-600 transition-colors hover:text-orange-700 dark:text-stone-400 dark:hover:text-orange-400"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
           <span>Back to Recipe Discovery</span>
         </Link>
 
-        <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-stone-500">
+        <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-stone-500 dark:text-stone-400">
           <span className="h-1.5 w-1.5 rounded-full bg-amber-500" aria-hidden="true" />
           <span>Kitchen Status 404</span>
         </div>
@@ -67,33 +67,33 @@ export function NotFoundClient({ staffPicks }: { staffPicks: MealSummary[] }) {
           />
         </div>
 
-        <div className="inline-flex items-center gap-2 rounded-full border border-orange-200/80 bg-orange-50 px-3.5 py-1 text-xs font-semibold text-orange-800">
+        <div className="inline-flex items-center gap-2 rounded-full border border-orange-200/80 bg-orange-50 px-3.5 py-1 text-xs font-semibold text-orange-800 dark:border-orange-900/60 dark:bg-orange-950/40 dark:text-orange-300">
           <span className="h-1.5 w-1.5 rounded-full bg-orange-600" aria-hidden="true" />
           <span>Error 404 &bull; Lost in the Pantry</span>
         </div>
 
-        <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-stone-900 sm:text-5xl">
+        <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100 sm:text-5xl">
           We couldn&rsquo;t find that dish<span className="text-orange-600">.</span>
         </h1>
 
-        <p className="mt-3 max-w-lg text-sm leading-relaxed text-stone-600 sm:text-base">
+        <p className="mt-3 max-w-lg text-sm leading-relaxed text-stone-600 dark:text-stone-400 sm:text-base">
           The recipe you are looking for could not be found. You can search for another dish or browse the suggestions below.
         </p>
 
         {/* Recovery Search Bar */}
         <form
           onSubmit={handleSearch}
-          className="mt-8 flex w-full max-w-xl items-center gap-2 rounded-2xl border border-stone-200 bg-white p-1.5 shadow-sm focus-within:border-orange-400 focus-within:ring-4 focus-within:ring-orange-500/10"
+          className="mt-8 flex w-full max-w-xl items-center gap-2 rounded-2xl border border-stone-200 bg-white p-1.5 shadow-sm focus-within:border-orange-400 focus-within:ring-4 focus-within:ring-orange-500/10 dark:border-stone-800 dark:bg-stone-900 dark:focus-within:border-orange-500"
           role="search"
         >
-          <Search className="ml-3 h-4 w-4 shrink-0 text-stone-400" aria-hidden="true" />
+          <Search className="ml-3 h-4 w-4 shrink-0 text-stone-400 dark:text-stone-500" aria-hidden="true" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Try searching for another dish or ingredient..."
             aria-label="Search for another recipe"
-            className="w-full bg-transparent px-2 py-2 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none"
+            className="w-full bg-transparent px-2 py-2 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none dark:text-stone-100 dark:placeholder:text-stone-500"
           />
           <button
             type="submit"
@@ -106,12 +106,12 @@ export function NotFoundClient({ staffPicks }: { staffPicks: MealSummary[] }) {
 
         {/* Popular Search Chips */}
         <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs">
-          <span className="font-medium text-stone-400">Popular searches:</span>
+          <span className="font-medium text-stone-400 dark:text-stone-500">Popular searches:</span>
           {POPULAR_SEARCHES.map((term) => (
             <Link
               key={term}
               href={`/?q=${encodeURIComponent(term)}`}
-              className="rounded-full border border-stone-200 bg-white px-3 py-1 font-medium text-stone-600 transition-colors hover:border-orange-300 hover:bg-orange-50 hover:text-orange-800"
+              className="rounded-full border border-stone-200 bg-white px-3 py-1 font-medium text-stone-600 transition-colors hover:border-orange-300 hover:bg-orange-50 hover:text-orange-800 dark:border-stone-800 dark:bg-stone-900 dark:text-stone-300 dark:hover:border-orange-500/50 dark:hover:bg-stone-800 dark:hover:text-orange-300"
             >
               {term}
             </Link>
@@ -132,7 +132,7 @@ export function NotFoundClient({ staffPicks }: { staffPicks: MealSummary[] }) {
             type="button"
             onClick={handleSurpriseMe}
             disabled={isRolling}
-            className="inline-flex items-center gap-2 rounded-xl border border-stone-200 bg-stone-100/90 px-5 py-2.5 text-sm font-semibold text-stone-800 transition-colors hover:bg-stone-200/80 disabled:opacity-60"
+            className="inline-flex items-center gap-2 rounded-xl border border-stone-200 bg-stone-100/90 px-5 py-2.5 text-sm font-semibold text-stone-800 transition-colors hover:bg-stone-200/80 disabled:opacity-60 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-200 dark:hover:bg-stone-700"
           >
             {isRolling ? (
               <Loader2 className="h-4 w-4 animate-spin text-orange-600" aria-hidden="true" />
@@ -146,18 +146,18 @@ export function NotFoundClient({ staffPicks }: { staffPicks: MealSummary[] }) {
 
       {/* Staff Picks Fallback Grid */}
       {staffPicks.length > 0 && (
-        <section className="border-t border-stone-200/80 pt-10">
+        <section className="border-t border-stone-200/80 pt-10 dark:border-stone-800">
           <div className="mb-6 flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-widest text-orange-700">
+              <p className="text-[11px] font-bold uppercase tracking-widest text-orange-700 dark:text-orange-400">
                 Suggested Dishes
               </p>
-              <h2 className="mt-1 text-2xl font-extrabold tracking-tight text-stone-900">
+              <h2 className="mt-1 text-2xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100">
                 Popular Recipes
               </h2>
             </div>
 
-            <p className="text-xs text-stone-500 sm:text-sm">
+            <p className="text-xs text-stone-500 dark:text-stone-400 sm:text-sm">
               Tested recipes from TheMealDB.
             </p>
           </div>

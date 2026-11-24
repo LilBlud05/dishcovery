@@ -2,8 +2,8 @@ import React from "react";
 
 export function Footer() {
    return (
-      <footer className="border-t border-stone-200 bg-white/80 print:hidden">
-         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-4 py-8 text-xs text-stone-500 sm:flex-row sm:items-center sm:px-6 lg:px-8">
+      <footer className="border-t border-stone-200 bg-white/80 transition-colors dark:border-stone-800 dark:bg-stone-900/80 print:hidden">
+         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-4 py-8 text-xs text-stone-500 transition-colors dark:text-stone-400 sm:flex-row sm:items-center sm:px-6 lg:px-8">
             <p>
                &copy; 2026 Dishcovery. Recipes from TheMealDB with step guides and prep checklists.
             </p>
@@ -13,7 +13,7 @@ export function Footer() {
                   href="https://www.themealdb.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors hover:text-stone-900"
+                  className="transition-colors hover:text-stone-900 dark:hover:text-stone-100"
                >
                   Powered by TheMealDB
                </a>

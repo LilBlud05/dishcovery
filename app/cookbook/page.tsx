@@ -124,7 +124,7 @@ export default function CookbookPage() {
       <div className="mb-6">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm font-medium text-stone-600 transition-colors hover:text-orange-700"
+          className="inline-flex items-center gap-2 text-sm font-medium text-stone-600 transition-colors hover:text-orange-700 dark:text-stone-400 dark:hover:text-orange-400"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
           <span>Back to Recipe Discovery</span>
@@ -134,39 +134,39 @@ export default function CookbookPage() {
       {/* Header & Summary Cards */}
       <section className="flex flex-col justify-between gap-6 pb-8 lg:flex-row lg:items-end">
         <div>
-          <h1 className="text-4xl font-extrabold tracking-tight text-stone-900 sm:text-5xl">
+          <h1 className="text-4xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100 sm:text-5xl">
             My Cookbook<span className="text-orange-600">.</span>
           </h1>
-          <p className="mt-2.5 max-w-xl text-sm leading-relaxed text-stone-600 sm:text-base">
+          <p className="mt-2.5 max-w-xl text-sm leading-relaxed text-stone-600 dark:text-stone-400 sm:text-base">
             Saved recipes stored in your browser, with one-click grocery list exports for meal planning.
           </p>
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center gap-3 rounded-2xl border border-stone-200 bg-white px-4 py-3 shadow-2xs">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 text-orange-600">
+          <div className="flex items-center gap-3 rounded-2xl border border-stone-200 bg-white px-4 py-3 shadow-2xs dark:border-stone-800 dark:bg-stone-900">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 text-orange-600 dark:bg-orange-950/50 dark:text-orange-400">
               <BookMarked className="h-5 w-5" aria-hidden="true" />
             </div>
             <div>
               <p className="text-[10px] font-bold uppercase tracking-wider text-stone-400">
                 Saved Meals
               </p>
-              <p className="text-base font-extrabold text-stone-900">
+              <p className="text-base font-extrabold text-stone-900 dark:text-stone-100">
                 {hydrated ? savedMeals.length : 0}{' '}
                 {savedMeals.length === 1 ? 'Recipe' : 'Recipes'}
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 rounded-2xl border border-stone-200 bg-white px-4 py-3 shadow-2xs">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-700">
+          <div className="flex items-center gap-3 rounded-2xl border border-stone-200 bg-white px-4 py-3 shadow-2xs dark:border-stone-800 dark:bg-stone-900">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-700 dark:bg-amber-950/50 dark:text-amber-400">
               <Globe className="h-5 w-5" aria-hidden="true" />
             </div>
             <div>
               <p className="text-[10px] font-bold uppercase tracking-wider text-stone-400">
                 Cuisines
               </p>
-              <p className="text-base font-extrabold text-stone-900">
+              <p className="text-base font-extrabold text-stone-900 dark:text-stone-100">
                 {hydrated ? uniqueAreaCount : 0}{' '}
                 {uniqueAreaCount === 1 ? 'Region' : 'Regions'}
               </p>
@@ -176,7 +176,7 @@ export default function CookbookPage() {
       </section>
 
       {/* Category Sub-Filters & Actions */}
-      <div className="mb-8 flex flex-col justify-between gap-4 rounded-2xl border border-stone-200 bg-white p-3.5 shadow-2xs lg:flex-row lg:items-center">
+      <div className="mb-8 flex flex-col justify-between gap-4 rounded-2xl border border-stone-200 bg-white p-3.5 shadow-2xs transition-colors dark:border-stone-800 dark:bg-stone-900 lg:flex-row lg:items-center">
         <div
           className="flex items-center gap-2 overflow-x-auto pb-1 lg:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           role="tablist"
@@ -190,13 +190,13 @@ export default function CookbookPage() {
             className={`inline-flex shrink-0 items-center gap-2 rounded-xl px-3.5 py-2 text-xs font-semibold transition-all ${
               activeFilter === 'All'
                 ? 'bg-orange-700 text-white shadow-xs'
-                : 'bg-stone-100/80 text-stone-700 hover:bg-stone-200/70'
+                : 'bg-stone-100/80 text-stone-700 hover:bg-stone-200/70 dark:bg-stone-800 dark:text-stone-300 dark:hover:bg-stone-700'
             }`}
           >
             <span>All Recipes</span>
             <span
               className={`rounded-full px-1.5 py-0.5 text-[10px] font-bold ${
-                activeFilter === 'All' ? 'bg-white/20 text-white' : 'bg-white text-stone-700'
+                activeFilter === 'All' ? 'bg-white/20 text-white' : 'bg-white text-stone-700 dark:bg-stone-900 dark:text-stone-300'
               }`}
             >
               {hydrated ? savedMeals.length : 0}
@@ -215,13 +215,13 @@ export default function CookbookPage() {
                 className={`inline-flex shrink-0 items-center gap-2 rounded-xl px-3.5 py-2 text-xs font-semibold transition-all ${
                   isActive
                     ? 'bg-orange-700 text-white shadow-xs'
-                    : 'bg-stone-100/80 text-stone-700 hover:bg-stone-200/70'
+                    : 'bg-stone-100/80 text-stone-700 hover:bg-stone-200/70 dark:bg-stone-800 dark:text-stone-300 dark:hover:bg-stone-700'
                 }`}
               >
                 <span>{category}</span>
                 <span
                   className={`rounded-full px-1.5 py-0.5 text-[10px] font-bold ${
-                    isActive ? 'bg-white/20 text-white' : 'bg-white text-stone-700'
+                    isActive ? 'bg-white/20 text-white' : 'bg-white text-stone-700 dark:bg-stone-900 dark:text-stone-300'
                   }`}
                 >
                   {count}
@@ -251,7 +251,7 @@ export default function CookbookPage() {
               type="button"
               onClick={() => setConfirmClear(true)}
               disabled={!hydrated || savedMeals.length === 0}
-              className="inline-flex items-center gap-1.5 rounded-xl border border-stone-200 bg-white px-3.5 py-2 text-xs font-semibold text-stone-700 transition-colors hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700 disabled:cursor-not-allowed disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 rounded-xl border border-stone-200 bg-white px-3.5 py-2 text-xs font-semibold text-stone-700 transition-colors hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700 disabled:cursor-not-allowed disabled:opacity-50 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-300 dark:hover:border-rose-900/60 dark:hover:bg-rose-950/40 dark:hover:text-rose-400"
             >
               <Trash2 className="h-3.5 w-3.5" aria-hidden="true" />
               <span>Clear All</span>
@@ -292,12 +292,12 @@ export default function CookbookPage() {
 
       {/* Empty State */}
       {hydrated && savedMeals.length === 0 && (
-        <div className="flex flex-col items-center justify-center rounded-3xl border border-stone-200 bg-white px-6 py-20 text-center shadow-2xs">
-          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50 text-orange-600">
+        <div className="flex flex-col items-center justify-center rounded-3xl border border-stone-200 bg-white px-6 py-20 text-center shadow-2xs dark:border-stone-800 dark:bg-stone-900">
+          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50 text-orange-600 dark:bg-orange-950/50 dark:text-orange-400">
             <BookMarked className="h-7 w-7" aria-hidden="true" />
           </div>
-          <h2 className="text-xl font-extrabold text-stone-900">Your cookbook is empty</h2>
-          <p className="mt-2 max-w-md text-sm leading-relaxed text-stone-600">
+          <h2 className="text-xl font-extrabold text-stone-900 dark:text-stone-100">Your cookbook is empty</h2>
+          <p className="mt-2 max-w-md text-sm leading-relaxed text-stone-600 dark:text-stone-400">
             Bookmark any recipe from the Explore feed or dish detail page to build your personal
             collection for weeknight dinners.
           </p>
@@ -317,10 +317,10 @@ export default function CookbookPage() {
           {filteredMeals.map((meal: MealSummary) => (
             <article
               key={meal.idMeal}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-2xs transition-all duration-200 hover:-translate-y-0.5 hover:border-stone-300 hover:shadow-md"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-2xs transition-all duration-200 hover:-translate-y-0.5 hover:border-stone-300 hover:shadow-md dark:border-stone-800 dark:bg-stone-900 dark:hover:border-stone-700"
             >
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-stone-100">
-                <Link href={`/recipe/${meal.idMeal}`} className="block h-full w-full">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-stone-100 dark:bg-stone-800">
+                <Link href={`/recipe/${meal.idMeal}`} className="relative block h-full w-full">
                   <Image
                     src={meal.strMealThumb}
                     alt={meal.strMeal}
@@ -331,7 +331,7 @@ export default function CookbookPage() {
                 </Link>
 
                 {meal.strCategory && (
-                  <span className="pointer-events-none absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-lg bg-white/95 px-2.5 py-1 text-[11px] font-semibold text-stone-800 shadow-xs backdrop-blur-xs">
+                  <span className="pointer-events-none absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-lg bg-white/95 px-2.5 py-1 text-[11px] font-semibold text-stone-800 shadow-xs backdrop-blur-xs dark:bg-stone-900/90 dark:text-stone-200">
                     <Utensils className="h-3 w-3 text-orange-600" aria-hidden="true" />
                     {meal.strCategory}
                   </span>
@@ -342,38 +342,38 @@ export default function CookbookPage() {
                   onClick={() => removeMeal(meal.idMeal)}
                   aria-label={`Remove ${meal.strMeal} from cookbook`}
                   title="Remove from cookbook"
-                  className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/95 shadow-xs backdrop-blur-xs transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/95 shadow-xs backdrop-blur-xs transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-stone-900/90"
                 >
                   <Bookmark className="h-4 w-4 fill-orange-600 text-orange-600" />
                 </button>
               </div>
 
               <div className="flex flex-1 flex-col p-4">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-orange-700">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-orange-700 dark:text-orange-400">
                   {meal.strCategory || 'Recipe'}
-                  {meal.strArea ? <span className="text-stone-400"> &bull; {meal.strArea}</span> : null}
+                  {meal.strArea ? <span className="text-stone-400 dark:text-stone-500"> &bull; {meal.strArea}</span> : null}
                 </p>
 
                 <Link href={`/recipe/${meal.idMeal}`} className="mt-1 focus:outline-none">
-                  <h2 className="line-clamp-1 text-base font-extrabold text-stone-900 transition-colors group-hover:text-orange-700">
+                  <h2 className="line-clamp-1 text-base font-extrabold text-stone-900 transition-colors group-hover:text-orange-700 dark:text-stone-100 dark:group-hover:text-orange-400">
                     {meal.strMeal}
                   </h2>
                 </Link>
 
                 <div className="mt-2.5">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-800">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
                     Ready to cook
                   </span>
                 </div>
 
-                <div className="mt-4 flex items-center justify-between border-t border-stone-100 pt-3 text-xs">
-                  <span className="text-stone-500">
+                <div className="mt-4 flex items-center justify-between border-t border-stone-100 pt-3 text-xs dark:border-stone-800">
+                  <span className="text-stone-500 dark:text-stone-400">
                     {meal.strArea ? `${meal.strArea} cuisine` : 'Saved recipe'}
                   </span>
                   <Link
                     href={`/recipe/${meal.idMeal}`}
-                    className="inline-flex items-center gap-1 font-semibold text-orange-700 transition-colors hover:text-orange-800"
+                    className="inline-flex items-center gap-1 font-semibold text-orange-700 transition-colors hover:text-orange-800 dark:text-orange-400 dark:hover:text-orange-300"
                   >
                     <span>View Details</span>
                     <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -393,13 +393,13 @@ export default function CookbookPage() {
           aria-modal="true"
           aria-labelledby="grocery-modal-title"
         >
-          <div className="flex max-h-[85vh] w-full max-w-xl flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-xl">
-            <div className="flex items-center justify-between border-b border-stone-200 px-6 py-4">
+          <div className="flex max-h-[85vh] w-full max-w-xl flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-xl dark:border-stone-800 dark:bg-stone-900">
+            <div className="flex items-center justify-between border-b border-stone-200 px-6 py-4 dark:border-stone-800">
               <div>
-                <h3 id="grocery-modal-title" className="text-lg font-extrabold text-stone-900">
+                <h3 id="grocery-modal-title" className="text-lg font-extrabold text-stone-900 dark:text-stone-100">
                   Cookbook Grocery List
                 </h3>
-                <p className="text-xs text-stone-500">
+                <p className="text-xs text-stone-500 dark:text-stone-400">
                   Ingredients compiled from {groceryGroups.length}{' '}
                   {groceryGroups.length === 1 ? 'recipe' : 'recipes'}
                 </p>
@@ -408,7 +408,7 @@ export default function CookbookPage() {
                 type="button"
                 onClick={() => setGroceryGroups(null)}
                 aria-label="Close grocery list"
-                className="rounded-lg p-1.5 text-stone-400 hover:bg-stone-100 hover:text-stone-700"
+                className="rounded-lg p-1.5 text-stone-400 hover:bg-stone-100 hover:text-stone-700 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-200"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -417,13 +417,13 @@ export default function CookbookPage() {
             <div className="flex-1 space-y-5 overflow-y-auto px-6 py-5">
               {groceryGroups.map((group) => (
                 <div key={group.mealTitle}>
-                  <h4 className="text-sm font-bold text-orange-800">{group.mealTitle}</h4>
-                  <ul className="mt-2 space-y-1.5 text-sm text-stone-700">
+                  <h4 className="text-sm font-bold text-orange-800 dark:text-orange-400">{group.mealTitle}</h4>
+                  <ul className="mt-2 space-y-1.5 text-sm text-stone-700 dark:text-stone-300">
                     {group.ingredients.map((item, idx) => (
                       <li key={idx} className="flex items-baseline gap-2">
                         <span className="text-orange-500">&bull;</span>
                         <span>
-                          <strong className="font-semibold text-stone-900">{item.measure}</strong>{' '}
+                          <strong className="font-semibold text-stone-900 dark:text-stone-100">{item.measure}</strong>{' '}
                           {item.ingredient}
                         </span>
                       </li>
@@ -433,11 +433,11 @@ export default function CookbookPage() {
               ))}
             </div>
 
-            <div className="flex flex-wrap items-center justify-end gap-2.5 border-t border-stone-200 bg-stone-50 px-6 py-4">
+            <div className="flex flex-wrap items-center justify-end gap-2.5 border-t border-stone-200 bg-stone-50 px-6 py-4 dark:border-stone-800 dark:bg-stone-950">
               <button
                 type="button"
                 onClick={handleCopyGroceryList}
-                className="inline-flex items-center gap-2 rounded-xl border border-stone-200 bg-white px-4 py-2 text-xs font-semibold text-stone-800 transition-colors hover:bg-stone-100"
+                className="inline-flex items-center gap-2 rounded-xl border border-stone-200 bg-white px-4 py-2 text-xs font-semibold text-stone-800 transition-colors hover:bg-stone-100 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-200 dark:hover:bg-stone-700"
               >
                 {copiedList ? (
                   <>

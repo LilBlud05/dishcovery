@@ -43,7 +43,7 @@ export function SearchBar({
   return (
     <form
       onSubmit={handleFormSubmit}
-      className="mx-auto flex w-full max-w-2xl items-center gap-2 rounded-2xl border border-stone-200 bg-white p-1.5 shadow-sm transition-shadow focus-within:border-orange-400 focus-within:shadow-md focus-within:ring-4 focus-within:ring-orange-500/10"
+      className="mx-auto flex w-full max-w-2xl items-center gap-2 rounded-2xl border border-stone-200 bg-white p-1.5 shadow-sm transition-shadow focus-within:border-orange-400 focus-within:shadow-md focus-within:ring-4 focus-within:ring-orange-500/10 dark:border-stone-800 dark:bg-stone-900 dark:focus-within:border-orange-500"
       role="search"
     >
       <div className="relative flex flex-1 items-center">
@@ -60,7 +60,7 @@ export function SearchBar({
           }}
           placeholder="Search by dish name, ingredient, or cuisine (e.g. Pasta, Teriyaki, Beef)"
           aria-label="Search recipes by dish name"
-          className="w-full bg-transparent px-3 py-2.5 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none sm:text-base"
+          className="w-full bg-transparent px-3 py-2.5 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none sm:text-base dark:text-stone-100 dark:placeholder:text-stone-500"
         />
         {value && (
           <button
@@ -71,7 +71,7 @@ export function SearchBar({
               onClear?.();
             }}
             aria-label="Clear search query"
-            className="mr-1 rounded-full p-1.5 text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-700"
+            className="mr-1 rounded-full p-1.5 text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-700 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-200"
           >
             <X className="h-4 w-4" />
           </button>

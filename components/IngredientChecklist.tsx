@@ -36,20 +36,20 @@ export function IngredientChecklist({ ingredients }: IngredientChecklistProps) {
   };
 
   return (
-    <div className="rounded-2xl border border-stone-200 bg-white p-5 shadow-2xs sm:p-6">
+    <div className="rounded-2xl border border-stone-200 bg-white p-5 shadow-2xs transition-colors dark:border-stone-800 dark:bg-stone-900 sm:p-6">
       {/* Header */}
       <div className="flex items-start justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
             <ClipboardList className="h-5 w-5 text-orange-600" aria-hidden="true" />
-            <h2 className="text-lg font-extrabold tracking-tight text-stone-900">
+            <h2 className="text-lg font-extrabold tracking-tight text-stone-900 dark:text-stone-100">
               Ingredient Checklist
             </h2>
           </div>
-          <p className="mt-0.5 text-xs text-stone-500">Mise en place &bull; Prep Checklist</p>
+          <p className="mt-0.5 text-xs text-stone-500 dark:text-stone-400">Mise en place &bull; Prep Checklist</p>
         </div>
 
-        <span className="rounded-lg bg-stone-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-stone-600">
+        <span className="rounded-lg bg-stone-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-stone-600 dark:bg-stone-800 dark:text-stone-300">
           {totalCount} {totalCount === 1 ? 'Item' : 'Items'}
         </span>
       </div>
@@ -57,7 +57,7 @@ export function IngredientChecklist({ ingredients }: IngredientChecklistProps) {
       {/* Live Progress Bar & Batch Actions */}
       <div className="mt-4">
         <div className="flex items-center justify-between text-xs">
-          <span className="font-semibold text-stone-700">
+          <span className="font-semibold text-stone-700 dark:text-stone-300">
             {checkedCount} of {totalCount} ingredients prepped
           </span>
 
@@ -81,7 +81,7 @@ export function IngredientChecklist({ ingredients }: IngredientChecklistProps) {
         </div>
 
         <div
-          className="mt-2 h-2 w-full overflow-hidden rounded-full bg-stone-100"
+          className="mt-2 h-2 w-full overflow-hidden rounded-full bg-stone-100 dark:bg-stone-800"
           role="progressbar"
           aria-valuenow={progressPct}
           aria-valuemin={0}
@@ -109,8 +109,8 @@ export function IngredientChecklist({ ingredients }: IngredientChecklistProps) {
                 aria-pressed={isChecked}
                 className={`group flex w-full items-center justify-between gap-3 rounded-xl border px-3.5 py-2.5 text-left transition-all ${
                   isChecked
-                    ? 'border-orange-200/80 bg-orange-50/50'
-                    : 'border-stone-200/90 bg-white hover:border-stone-300 hover:bg-stone-50/60'
+                    ? 'border-orange-200/80 bg-orange-50/50 dark:border-orange-950/60 dark:bg-orange-950/20'
+                    : 'border-stone-200/90 bg-white hover:border-stone-300 hover:bg-stone-50/60 dark:border-stone-800 dark:bg-stone-900 dark:hover:border-stone-700 dark:hover:bg-stone-800/60'
                 }`}
               >
                 <div className="flex items-center gap-3">
@@ -118,7 +118,7 @@ export function IngredientChecklist({ ingredients }: IngredientChecklistProps) {
                     className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition-colors ${
                       isChecked
                         ? 'border-orange-600 bg-orange-600 text-white'
-                        : 'border-stone-300 bg-white group-hover:border-orange-400'
+                        : 'border-stone-300 bg-white group-hover:border-orange-400 dark:border-stone-700 dark:bg-stone-800'
                     }`}
                     aria-hidden="true"
                   >
@@ -127,18 +127,18 @@ export function IngredientChecklist({ ingredients }: IngredientChecklistProps) {
 
                   <span
                     className={`text-sm transition-colors ${
-                      isChecked ? 'text-stone-400 line-through' : 'text-stone-800'
+                      isChecked ? 'text-stone-400 line-through dark:text-stone-500' : 'text-stone-800 dark:text-stone-200'
                     }`}
                   >
-                    <strong className={isChecked ? 'font-semibold text-stone-400' : 'font-bold text-stone-900'}>
+                    <strong className={isChecked ? 'font-semibold text-stone-400 dark:text-stone-500' : 'font-bold text-stone-900 dark:text-stone-100'}>
                       {item.measure}
                     </strong>{' '}
-                    <span className="text-stone-400">&mdash;</span> {item.ingredient}
+                    <span className="text-stone-400 dark:text-stone-500">&mdash;</span> {item.ingredient}
                   </span>
                 </div>
 
                 {isChecked && (
-                  <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600" aria-hidden="true" />
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
                 )}
               </button>
             </li>
@@ -147,12 +147,12 @@ export function IngredientChecklist({ ingredients }: IngredientChecklistProps) {
       </ul>
 
       {/* Cooking Tip */}
-      <div className="mt-5 rounded-xl border border-amber-200/70 bg-amber-50/70 p-3.5">
-        <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-orange-800">
-          <Lightbulb className="h-3.5 w-3.5 text-orange-600" aria-hidden="true" />
+      <div className="mt-5 rounded-xl border border-amber-200/70 bg-amber-50/70 p-3.5 dark:border-amber-900/60 dark:bg-amber-950/30">
+        <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-orange-800 dark:text-orange-400">
+          <Lightbulb className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400" aria-hidden="true" />
           <span>Cooking Tip</span>
         </div>
-        <p className="mt-1 text-xs leading-relaxed text-stone-700">
+        <p className="mt-1 text-xs leading-relaxed text-stone-700 dark:text-stone-300">
           Measure all {totalCount} ingredients before turning on the stove so each step runs on schedule.
         </p>
       </div>
